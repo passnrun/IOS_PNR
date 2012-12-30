@@ -90,9 +90,11 @@
         cell.awayActionImage.image = [item actionImage];
         cell.homePlayer.text = @"";
     }
-    
-    
     return cell;
+}
+
+-(IBAction)backView:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

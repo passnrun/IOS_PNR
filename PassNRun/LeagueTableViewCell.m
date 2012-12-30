@@ -10,7 +10,7 @@
 
 @implementation LeagueTableViewCell
 
-@synthesize avgGoals, points, win, lost, draw, forGoals, againstGoals, team, played;
+@synthesize rank,avgGoals, points, win, lost, draw, forGoals, againstGoals, team, played;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

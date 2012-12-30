@@ -87,11 +87,8 @@
             Player * p = [[Player alloc] initWithDictionary:player];
             [firstTeamPlayes addObject:p];
         }
-        int i = 1;
         for (NSDictionary * player in substitutes)
         {
-            NSMutableDictionary * subsPlayer=[player mutableCopy];
-            [subsPlayer setValue:[NSString stringWithFormat:@"S%i", i++] forKey:@"postition"];
             Player * p = [[Player alloc] initWithDictionary:player];
             [subsPlayes addObject:p];
         }

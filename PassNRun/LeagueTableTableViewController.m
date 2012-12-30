@@ -71,8 +71,7 @@
     
     LeagueTableRow * row = [self.leagueTableArray objectAtIndex:indexPath.row];
     
-    
-    cell.backgroundColor=[UIColor clearColor];
+    cell.rank.text      = [NSString stringWithFormat:@"%i",(indexPath.row+1)];
     cell.team.text      = row.teamName;
     cell.played.text    = [NSString stringWithFormat:@"%i",row.played];
     cell.win.text       = [NSString stringWithFormat:@"%i",row.won];

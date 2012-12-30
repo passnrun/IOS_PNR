@@ -19,6 +19,8 @@
     GameScore * gameScore;
     Fixture * fixture;
 }
+-(IBAction)backView:(id)sender;
+
 @property (nonatomic, strong) UILabel * homeTeam;
 @property (nonatomic, strong) UILabel * awayTeam;
 @property (nonatomic, strong) UILabel * score;

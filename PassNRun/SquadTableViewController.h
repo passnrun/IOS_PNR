@@ -15,7 +15,7 @@
     Tactic * tactic;
     NSMutableArray * selectedCells;
     NSArray * formations;
-    IBOutlet UIBarButtonItem * swapButton;
+    IBOutlet UIButton * swapButton;
     IBOutlet UITableView * squadTable;
     IBOutlet UIPickerView * formationPicker;
     IBOutlet UIButton * useFormationButton;
@@ -25,11 +25,13 @@
 -(IBAction)saveSquad:(id)sender;
 -(IBAction)formation:(id)sender;
 -(IBAction)setFormation:(id)sender;
+-(IBAction)backView:(id)sender;
+-(UIImage *)getImageForPositionMatch:(NSString *)nPosition:(NSString *)tPosition;
 
 @property (nonatomic, strong) Tactic * tactic;
 @property (nonatomic, strong) NSMutableArray * selectedCells;
 @property (nonatomic, strong) NSArray * formations;
-@property (nonatomic, strong) UIBarButtonItem * swapButton;
+@property (nonatomic, strong) UIButton * swapButton;
 @property (nonatomic, strong) UITableView * squadTable;
 @property (nonatomic, strong) UIPickerView * formationPicker;
 @property (nonatomic, strong) UIButton * useFormationButton;

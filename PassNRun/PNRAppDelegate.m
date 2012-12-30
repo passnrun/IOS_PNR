@@ -41,8 +41,13 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    NSLog(@"register for notification");
-    deviceTokenStr = [[NSString alloc] initWithData:deviceToken encoding:NSASCIIStringEncoding];
+    deviceTokenStr =
+    [[NSString alloc] initWithString: [[[[deviceToken description]
+        stringByReplacingOccurrencesOfString: @"<" withString: @""]
+        stringByReplacingOccurrencesOfString: @">" withString: @""]
+        stringByReplacingOccurrencesOfString: @" " withString: @""]];
+    NSLog(@"register for notification :%@", deviceTokenStr);
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

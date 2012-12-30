@@ -10,7 +10,7 @@
 
 @implementation SquadTableViewCell
 
-@synthesize playerAge, playerName, latestForm, playerNativePosition, position;
+@synthesize playerName, latestForm, position, positionMatchImage, quality, age;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -11,6 +11,7 @@
 #import "Common/Player.h"
 #import "OnlineServices.h"
 #import "SQLLiteManager.h"
+#import "Position.h"
 
 
 @interface SquadTableViewController ()
@@ -20,9 +21,6 @@
 @implementation SquadTableViewController
 
 @synthesize tactic, selectedCells, swapButton, squadTable, formations, formationPicker, useFormationButton;
-
-const int SECTION_SQUAD         = 0;
-const int SECTION_SUBSTITUTES   = 1;
 
 - (NSArray *) getPositionListForSelectedFormation:(NSInteger)index
 {
@@ -38,12 +36,29 @@ const int SECTION_SUBSTITUTES   = 1;
         return @[@"GK",@"D(L)",@"D(C)",@"D(C)",@"D(R)",@"M(L)",@"M(C)",@"M(C)",@"M(R)",@"ST",@"ST"];
 }
 
+- (UIImage *) getImageForPositionMatch : (NSString *) nPosition : (NSString *) tPosition
+{
+    Position * nativePos = [[Position alloc] initWithCode:nPosition];
+    Position * tacticPos = [[Position alloc] initWithCode:tPosition];
+    int match = [nativePos match:tacticPos];
+    switch (match) {
+        case 1:
+            return [UIImage imageNamed:@"warning_y.png"];
+        case 2:
+            return [UIImage imageNamed:@"warning_r.png"];
+        default:
+            return nil;
+    }
+}
+
 - (Player *) getPlayerFrom:(NSIndexPath *)indexpath
 {
-    if (indexpath.section == SECTION_SQUAD)
+    if (indexpath.row < [tactic.squad count])
         return [tactic.squad objectAtIndex:indexpath.row];
+    else if (indexpath.row == [tactic.squad count])
+        return nil;
     else
-        return [tactic.substitutes objectAtIndex:indexpath.row];
+        return [tactic.substitutes objectAtIndex:(indexpath.row - ([tactic.squad count]+1))];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -73,24 +88,35 @@ const int SECTION_SUBSTITUTES   = 1;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == SECTION_SQUAD)
-        return [tactic.squad count];
-    else
-        return [tactic.substitutes count];
+    return [tactic.squad count] + [tactic.substitutes count] + 1;
 }
 
 - (void) setCellInformation:(SquadTableViewCell *)cell withPlayer:(Player *)player
 {
-    cell.playerName.text = [NSString stringWithFormat:@"%@ (%i)", player.name, player.age];
-    cell.position.text = player.position;
-    cell.playerNativePosition.text = player.nativePosition;
-    cell.latestForm.text = player.latestForm;
-    cell.playerAge.text = player.quality;
+    if (player != nil)
+    {
+        cell.playerName.text = [NSString stringWithFormat:@"%@(%@)",player.name, player.nativePosition];
+        cell.position.text = player.position;
+        if ([player.latestForm isEqualToString:@"null"])
+            cell.latestForm.text = @"-";
+        else
+            cell.latestForm.text = player.latestForm;
+        cell.positionMatchImage.image = [self getImageForPositionMatch:player.nativePosition :player.position];
+        cell.quality.text = player.quality;
+        cell.age.text = [NSString stringWithFormat:@"%i", player.age];
+    }else{
+        cell.playerName.text = @"";
+        cell.position.text = @"";
+        cell.latestForm.text = @"";
+        cell.quality.text = @"";
+        cell.age.text = @"";
+        
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,9 +124,9 @@ const int SECTION_SUBSTITUTES   = 1;
     static NSString *CellIdentifier = @"SquadCell";
     SquadTableViewCell *cell =
         (SquadTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     Player * player = [self getPlayerFrom:indexPath];
     [self setCellInformation:cell withPlayer:player];
-    
     return cell;
 }
 
@@ -144,25 +170,38 @@ const int SECTION_SUBSTITUTES   = 1;
 }
 */
 
+
+- (void) table:(UITableView *)tableView colorCellAtIndexPath:(NSIndexPath *)indexPath :(BOOL)isSelected
+{
+    SquadTableViewCell * cell = (SquadTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.playerName.highlighted = isSelected;
+    cell.position.highlighted = isSelected;
+    cell.latestForm.highlighted = isSelected;
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if(indexPath.row == [tactic.squad count])
+        return;
     if([selectedCells count] == 2){
-        NSIndexPath * previoslySelectedIndexPath = [selectedCells lastObject];
+        NSIndexPath * previoslySelectedIndexPath = [selectedCells objectAtIndex:0];
         [tableView deselectRowAtIndexPath:previoslySelectedIndexPath animated:YES];
-        [selectedCells removeLastObject];
+        [self table:tableView colorCellAtIndexPath:previoslySelectedIndexPath :NO];
+        [selectedCells removeObjectAtIndex:0];
     }
     [selectedCells addObject:indexPath];
     [swapButton setEnabled:([selectedCells count] == 2)];
-
+    [self table:tableView colorCellAtIndexPath:indexPath :YES];
+    
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([selectedCells containsObject:indexPath])
         [selectedCells removeObject:indexPath];
     [swapButton setEnabled:([selectedCells count] == 2)];
+    [self table:tableView colorCellAtIndexPath:indexPath :NO];
 }
 
 #pragma mark - UIPickerViewDelegate, UIPickerViewDataSource
@@ -271,5 +310,11 @@ const int SECTION_SUBSTITUTES   = 1;
     [self.squadTable reloadData];
 
 }
+
+-(IBAction)backView:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 
 @end

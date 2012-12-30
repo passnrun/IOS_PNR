@@ -10,6 +10,7 @@
 
 @interface LeagueTableViewCell : UITableViewCell
 {
+    IBOutlet   UILabel *rank;
     IBOutlet   UILabel *team;
     IBOutlet   UILabel *played;
     IBOutlet   UILabel *win;
@@ -21,7 +22,7 @@
     IBOutlet   UILabel *points;
     
 }
-
+@property(nonatomic,strong) UILabel *rank;
 @property(nonatomic,strong) UILabel *team;
 @property(nonatomic,strong) UILabel *played;
 @property(nonatomic,strong) UILabel *win;

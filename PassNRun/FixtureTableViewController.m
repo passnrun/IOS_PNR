@@ -54,10 +54,7 @@
 }
 
 -(IBAction)backView:(id)sender{
-    
-    
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
 
 #pragma mark - Table view data source

@@ -11,15 +11,17 @@
 @interface SquadTableViewCell : UITableViewCell
 {
     IBOutlet UILabel * playerName;
-    IBOutlet UILabel * playerNativePosition;
     IBOutlet UILabel * latestForm;
-    IBOutlet UILabel * playerAge;
     IBOutlet UILabel * position;
+    IBOutlet UILabel * age;
+    IBOutlet UILabel * quality;
+    IBOutlet UIImageView * positionMatchImage;
 }
 
 @property (nonatomic, strong) UILabel * playerName;
-@property (nonatomic, strong) UILabel * playerNativePosition;
 @property (nonatomic, strong) UILabel * latestForm;
-@property (nonatomic, strong) UILabel * playerAge;
 @property (nonatomic, strong) UILabel * position;
+@property (nonatomic, strong) UILabel * age;
+@property (nonatomic, strong) UILabel * quality;
+@property (nonatomic, strong) UIImageView * positionMatchImage;
 @end
