@@ -202,7 +202,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My Squad" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KZ8-6y-pfw">
-                                <rect key="frame" x="100" y="16" width="196" height="26"/>
+                                <rect key="frame" x="68" y="16" width="228" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                 <color key="textColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -379,6 +379,7 @@
                         <outlet property="formationPicker" destination="1RJ-E0-Qty" id="6Jj-tM-VZK"/>
                         <outlet property="squadTable" destination="q5m-s0-cvL" id="gIu-xt-wZM"/>
                         <outlet property="swapButton" destination="8rp-H3-4f1" id="ex6-pK-nvL"/>
+                        <outlet property="title" destination="KZ8-6y-pfw" id="lpa-TP-dsb"/>
                         <outlet property="useFormationButton" destination="f6G-ic-LdI" id="MFe-Gm-GMS"/>
                     </connections>
                 </viewController>
@@ -604,6 +605,29 @@
                                             <outlet property="team" destination="L0T-9T-0Vs" id="FAI-Fv-3zi"/>
                                             <outlet property="win" destination="p55-fe-bon" id="PJg-x2-WWt"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="EmptyLeagueTableCell" id="aUB-sx-VAc">
+                                        <rect key="frame" x="0.0" y="49" width="300" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="26"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" image="table_cell_border.png" id="7ip-hs-dna">
+                                                    <rect key="frame" x="5" y="1" width="290" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="League is not created yet." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dyl-Mn-xYY" userLabel="Label - No">
+                                                    <rect key="frame" x="10" y="4" width="300" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
+                                                    <color key="textColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -880,6 +904,28 @@
                                             <outlet property="scoreButton" destination="Zhd-29-rct" id="Y7p-he-2b4"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EmptyFixtureCell" rowHeight="27" id="obP-na-iww" userLabel="Empty Fixture Cell">
+                                        <rect key="frame" x="0.0" y="49" width="300" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="26"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" image="table_cell_border.png" id="fxp-8M-Eab">
+                                                    <rect key="frame" x="5" y="1" width="290" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="League Fixture is not drawn yet." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rbS-tg-hXQ">
+                                                    <rect key="frame" x="10" y="3" width="300" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
+                                                    <color key="textColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="AcH-dB-UAa" id="oiy-co-MPa"/>
@@ -1106,121 +1152,6 @@
         <image name="header.png" width="598" height="88"/>
         <image name="table_cell_border.png" width="574" height="50"/>
     </resources>
-    <classes>
-        <class className="FixtureTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FixtureTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="awayTeam" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="homeTeam" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="score" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scoreButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="FixtureTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FixtureTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backView:"/>
-                <relationship kind="outlet" name="fixtureTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="GameScoreTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameScoreTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="awayActionImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="awayPlayer" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="homeActionImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="homePlayer" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="minute" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GameScoreTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameScoreTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backView:"/>
-                <relationship kind="outlet" name="awayTeam" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gameActionsTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="homeTeam" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="score" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LeagueTableTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeagueTableTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backView:"/>
-                <relationship kind="outlet" name="leagueTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="LeagueTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeagueTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="againstGoals" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="avgGoals" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="draw" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="forGoals" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="played" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="points" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rank" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="team" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="win" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NewsTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NewsTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="newsDetails" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="newsTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="PNRViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PNRViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="resign:"/>
-            </relationships>
-        </class>
-        <class className="RegisterModalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterModalViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sendData:"/>
-                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="surnameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="teamTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SquadTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SquadTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="age" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="latestForm" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="position" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="positionMatchImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="quality" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SquadTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SquadTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backView:"/>
-                <relationship kind="action" name="formation:"/>
-                <relationship kind="action" name="saveSquad:"/>
-                <relationship kind="action" name="setFormation:"/>
-                <relationship kind="action" name="switchPlayers:"/>
-                <relationship kind="outlet" name="formationPicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="squadTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="swapButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="useFormationButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

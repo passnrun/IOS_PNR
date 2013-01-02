@@ -34,5 +34,6 @@
 - (BOOL)updateGameResult:(GameResult *)gameResult;
 - (NSArray *) getFixture;
 - (NSArray *) getLeagueTable;
+- (NSString *) getTeamNameWithId:(int)teamId;
 
 @end

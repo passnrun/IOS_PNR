@@ -13,10 +13,13 @@
     NSArray * leagueTableArray;
     IBOutlet UITableView * leagueTableView;
     UIImageView *imageCell;
+    BOOL isLeagueDrawn;
 }
 @property(nonatomic,retain) UIImageView *imageCell;
 @property(nonatomic,retain) NSArray * leagueTableArray;
 @property(nonatomic,retain) UITableView * leagueTableView;
+@property(nonatomic,assign) BOOL isLeagueDrawn;
+
 
 -(IBAction)backView:(id)sender;
 

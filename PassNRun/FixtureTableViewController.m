@@ -19,7 +19,7 @@
 @implementation FixtureTableViewController
 
 
-@synthesize fixtureArray, fixtureTable, dateFormatter;
+@synthesize fixtureArray, fixtureTable, dateFormatter, isFixtureDrawn;
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -31,6 +31,7 @@
 {
     [super viewDidLoad];
     SQLLiteManager * sqlm = [SQLLiteManager instance];
+    isFixtureDrawn = NO;
     self.fixtureArray = [sqlm getFixture];
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd.MM.yy"];
@@ -69,25 +70,36 @@
 {
 
     // Return the number of rows in the section.
-    return [self.fixtureArray count];
+    if (isFixtureDrawn)
+        return [self.fixtureArray count];
+    else
+        return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"FixtureCell";
-    FixtureTableViewCell *cell = (FixtureTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    Fixture * fixture = [self.fixtureArray objectAtIndex:indexPath.row];
-    
-    if (fixture.isPlayed)
-        cell.score.text = [NSString stringWithFormat:@"%i : %i",fixture.homeScore, fixture.awayScore];
-    else
-        cell.score.text = @"- : -";
+    if (isFixtureDrawn)
+    {
+        static NSString *CellIdentifier = @"FixtureCell";
+        FixtureTableViewCell *cell = (FixtureTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        Fixture * fixture = [self.fixtureArray objectAtIndex:indexPath.row];
         
-    cell.homeTeam.text = fixture.homeTeamName;
-    cell.awayTeam.text = fixture.awayTeamName;
+        if (fixture.isPlayed)
+            cell.score.text = [NSString stringWithFormat:@"%i : %i",fixture.homeScore, fixture.awayScore];
+        else
+            cell.score.text = @"- : -";
+        
+        cell.homeTeam.text = fixture.homeTeamName;
+        cell.awayTeam.text = fixture.awayTeamName;
+        
+        cell.date.text = fixture.date;
+        return cell;
+    }
+    else{
+        static NSString *CellIdentifier = @"EmptyFixtureCell";
+        return [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    }
     
-	cell.date.text = fixture.date;
-    return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

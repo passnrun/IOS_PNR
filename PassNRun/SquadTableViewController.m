@@ -20,7 +20,7 @@
 
 @implementation SquadTableViewController
 
-@synthesize tactic, selectedCells, swapButton, squadTable, formations, formationPicker, useFormationButton;
+@synthesize managerId, tactic, selectedCells, swapButton, squadTable, formations, formationPicker, useFormationButton, title;
 
 - (NSArray *) getPositionListForSelectedFormation:(NSInteger)index
 {
@@ -72,7 +72,10 @@
     SQLLiteManager *sqlm=[SQLLiteManager instance];
     [swapButton setEnabled:NO];
     selectedCells = [[NSMutableArray alloc]initWithCapacity:2];
-    Response * resp = [OnlineServices getSquad:[sqlm getLocalCurrent].managerId];
+    Current * current = [sqlm getLocalCurrent];
+    managerId = current.managerId;
+    title.text = [sqlm getTeamNameWithId:current.teamId];
+    Response * resp = [OnlineServices getSquad:managerId];
     tactic = (Tactic *)resp.object;
     self.formations = @[@"4-4-2",@"4-5-1",@"3-5-2",@"4-3-3"];
     [self.navigationController.navigationBar setHidden:NO];
@@ -229,7 +232,6 @@
     NSIndexPath * indexPath1 = [selectedCells objectAtIndex:0];
     NSIndexPath * indexPath2 = [selectedCells objectAtIndex:1];
     
-    
     Player * player1 = [self getPlayerFrom:indexPath1];
     NSString * tempPosition = player1.position;
     Player * player2 = [self getPlayerFrom:indexPath2];
@@ -274,7 +276,7 @@
     if (!resp.isSuccessful)
         message = resp.errorMessage;
     else{
-        resp = [OnlineServices getSquad:1];
+        resp = [OnlineServices getSquad:managerId];
         tactic = (Tactic *)resp.object;
         [self.squadTable reloadData];
     }

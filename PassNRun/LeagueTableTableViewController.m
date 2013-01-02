@@ -16,7 +16,7 @@
 
 @implementation LeagueTableTableViewController
 
-@synthesize leagueTableArray, leagueTableView,imageCell;
+@synthesize leagueTableArray, leagueTableView,imageCell, isLeagueDrawn;
 
 
 
@@ -31,8 +31,7 @@
     
     SQLLiteManager * sqlm = [SQLLiteManager instance];
     self.leagueTableArray = [sqlm getLeagueTable];
-    [self.navigationController.navigationBar setHidden:YES];
-
+    isLeagueDrawn = NO;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -61,28 +60,39 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [leagueTableArray count];
+    if (isLeagueDrawn)
+        return [leagueTableArray count];
+    else
+        return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"LeagueTableCell";
-    LeagueTableViewCell *cell = (LeagueTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (isLeagueDrawn)
+    {
+        static NSString *CellIdentifier = @"LeagueTableCell";
+        LeagueTableViewCell *cell = (LeagueTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        LeagueTableRow * row = [self.leagueTableArray objectAtIndex:indexPath.row];
+        
+        cell.rank.text      = [NSString stringWithFormat:@"%i",(indexPath.row+1)];
+        cell.team.text      = row.teamName;
+        cell.played.text    = [NSString stringWithFormat:@"%i",row.played];
+        cell.win.text       = [NSString stringWithFormat:@"%i",row.won];
+        cell.draw.text      = [NSString stringWithFormat:@"%i",row.draw];
+        cell.lost.text      = [NSString stringWithFormat:@"%i",row.lost];
+        cell.forGoals.text  = [NSString stringWithFormat:@"%i",row.forGoals];
+        cell.againstGoals.text =[NSString stringWithFormat:@"%i",row.againstGoals];
+        cell.avgGoals.text =[NSString stringWithFormat:@"%i",row.forGoals-row.againstGoals];
+        cell.points.text = [NSString stringWithFormat:@"%i",row.points];
+        
+        return cell;
+    }else{
+        static NSString *CellIdentifier = @"EmptyLeagueTableCell";
+        return [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    }
     
-    LeagueTableRow * row = [self.leagueTableArray objectAtIndex:indexPath.row];
-    
-    cell.rank.text      = [NSString stringWithFormat:@"%i",(indexPath.row+1)];
-    cell.team.text      = row.teamName;
-    cell.played.text    = [NSString stringWithFormat:@"%i",row.played];
-    cell.win.text       = [NSString stringWithFormat:@"%i",row.won];
-    cell.draw.text      = [NSString stringWithFormat:@"%i",row.draw];
-    cell.lost.text      = [NSString stringWithFormat:@"%i",row.lost];
-    cell.forGoals.text  = [NSString stringWithFormat:@"%i",row.forGoals];
-    cell.againstGoals.text =[NSString stringWithFormat:@"%i",row.againstGoals];
-    cell.avgGoals.text =[NSString stringWithFormat:@"%i",row.forGoals-row.againstGoals];
-    cell.points.text = [NSString stringWithFormat:@"%i",row.points];
-    
-    return cell;
+
 }
 
 

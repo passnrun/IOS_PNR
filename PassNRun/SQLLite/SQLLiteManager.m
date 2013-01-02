@@ -302,6 +302,25 @@ static SQLLiteManager *instance = nil;
     return leagueTable;
 }
 
+- (NSString *)getTeamNameWithId:(int)teamId
+{
+    sqlite3_stmt *statement;
+    NSString * teamName = @"";
+    NSString * querySQL = [NSString stringWithFormat:@"SELECT T.NAME FROM TEAM T where T.ID = %i", teamId];
+    NSLog(@"D - getTeamNameWithId SQL: \n%@", querySQL);
+    const char *query_stmt = [querySQL UTF8String];
+    if (sqlite3_prepare_v2(pnrDB, query_stmt, -1, &statement,NULL) == SQLITE_OK){
+        while (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            teamName = [NSString stringWithCString:sqlite3_column_text(statement, 1) encoding: NSUTF8StringEncoding];
+        }
+        sqlite3_finalize(statement);
+    }else
+        NSLog(@"E - getTeamNameWithId Error");
+    
+    return teamName;
+
+}
 
 -(BOOL)executeSql:(NSString *)sql{
     char *errMsg;
