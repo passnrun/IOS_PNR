@@ -293,6 +293,31 @@
                                             <outlet property="quality" destination="A4k-Lq-1lw" id="wVq-zS-7uw"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EmptySquadCell" id="2Cq-OS-Gn1" customClass="SquadTableViewCell">
+                                        <rect key="frame" x="0.0" y="49" width="300" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="26"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" image="table_cell_border.png" id="47d-G0-3rB">
+                                                    <rect key="frame" x="6" y="1" width="288" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="AMC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="taj-Yn-vWD">
+                                                    <rect key="frame" x="10" y="3" width="270" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
+                                                    <color key="textColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="position" destination="taj-Yn-vWD" id="K96-jb-ZIT"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="8Tt-Gc-hD5" id="4GW-kS-BPS"/>
@@ -1152,6 +1177,122 @@
         <image name="header.png" width="598" height="88"/>
         <image name="table_cell_border.png" width="574" height="50"/>
     </resources>
+    <classes>
+        <class className="FixtureTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FixtureTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="awayTeam" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="homeTeam" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="score" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FixtureTableViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FixtureTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backView:"/>
+                <relationship kind="outlet" name="fixtureTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="GameScoreTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameScoreTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="awayActionImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="awayPlayer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="homeActionImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="homePlayer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minute" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GameScoreTableViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameScoreTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backView:"/>
+                <relationship kind="outlet" name="awayTeam" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gameActionsTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="homeTeam" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="score" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LeagueTableTableViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeagueTableTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backView:"/>
+                <relationship kind="outlet" name="leagueTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="LeagueTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeagueTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="againstGoals" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="avgGoals" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="draw" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="forGoals" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="played" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="points" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rank" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="team" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="win" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NewsTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NewsTableViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="newsDetails" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="newsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="PNRViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PNRViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="resign:"/>
+            </relationships>
+        </class>
+        <class className="RegisterModalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterModalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sendData:"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="surnameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="teamTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SquadTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SquadTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="age" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="latestForm" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="position" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="positionMatchImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="quality" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SquadTableViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SquadTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backView:"/>
+                <relationship kind="action" name="formation:"/>
+                <relationship kind="action" name="saveSquad:"/>
+                <relationship kind="action" name="setFormation:"/>
+                <relationship kind="action" name="switchPlayers:"/>
+                <relationship kind="outlet" name="formationPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="squadTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="swapButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="useFormationButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

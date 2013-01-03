@@ -48,12 +48,12 @@ NSString *const CENTER          = @"C";
         if ([self.position isEqualToString:(NSString *)[positions objectAtIndex:i]])
             return i;
     }
-    NSLog(@"PositionIndex could not match position:%@", self.position);
+    //NSLog(@"PositionIndex could not match position:%@", self.position);
     return -1;
 }
 - (int) match:(Position *) p
 {
-    if ([p.position isEqualToString:SUBSTITITE] || [self.position isEqualToString:SUBSTITITE])
+    if ([p positionIndex] == -1  || [self positionIndex] == -1)
         return 0;
     
     if ([p.position isEqualToString:self.position]){

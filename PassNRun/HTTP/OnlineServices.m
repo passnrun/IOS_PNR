@@ -76,12 +76,14 @@
     Response * resp = [[Response alloc] init];
     Tactic * teamTactic = [[Tactic alloc] init];
     NSMutableArray * firstTeamPlayes = [NSMutableArray arrayWithCapacity:11];
-    NSMutableArray * subsPlayes = [NSMutableArray arrayWithCapacity:11];
+    NSMutableArray * subsPlayes = [NSMutableArray arrayWithCapacity:7];
+    NSMutableArray * reservePlayes = [NSMutableArray arrayWithCapacity:6];
     if ([[directory valueForKey:@"result"] isEqualToString:@"0"]){
 		NSDictionary * tactic = (NSDictionary *)[directory valueForKey:@"data"];
 		int tacticId = [(NSString *)[tactic valueForKey:@"id"] intValue];
         NSArray * squad = (NSArray *) [tactic objectForKey:@"firstTeam"];
         NSArray * substitutes = (NSArray *) [tactic objectForKey:@"subs"];
+        NSArray * reserves = (NSArray *) [tactic objectForKey:@"reserves"];
         for (NSDictionary * player in squad)
         {
             Player * p = [[Player alloc] initWithDictionary:player];
@@ -92,9 +94,15 @@
             Player * p = [[Player alloc] initWithDictionary:player];
             [subsPlayes addObject:p];
         }
+        for (NSDictionary * player in reserves)
+        {
+            Player * p = [[Player alloc] initWithDictionary:player];
+            [reservePlayes addObject:p];
+        }
         teamTactic.tid = tacticId;
         teamTactic.substitutes = subsPlayes;
         teamTactic.squad = firstTeamPlayes;
+        teamTactic.reserves = reservePlayes;
 		NSLog(@"getGetSquad is successful..");
         resp.isSuccessful= YES;
 		resp.object = teamTactic;
@@ -244,8 +252,8 @@
 
 
 +(NSString *)postRequest:(NSString *)input{
-	NSString *urlString = @"http://pickledphotos.com/passnrun/Mobile";
-    //NSString *urlString = @"http://localhost:8080/PassNRun_v1/Mobile";
+	//NSString *urlString = @"http://pickledphotos.com/passnrun/Mobile";
+    NSString *urlString = @"http://localhost:8080/PassNRun_v1/Mobile";
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	[request setURL:[NSURL URLWithString:urlString]];
 	[request setHTTPMethod:@"POST"];

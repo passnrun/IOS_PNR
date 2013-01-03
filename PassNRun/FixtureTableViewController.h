@@ -11,13 +11,11 @@
 @interface FixtureTableViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>{
    
     NSArray * fixtureArray;
-    NSDateFormatter *dateFormatter;
     IBOutlet UITableView * fixtureTable;
     BOOL isFixtureDrawn;
 }
 
 @property(nonatomic,strong) NSArray * fixtureArray;
-@property(nonatomic,strong) NSDateFormatter * dateFormatter;
 @property(nonatomic,strong) UITableView * fixtureTable;
 @property(nonatomic,assign) BOOL isFixtureDrawn;
 

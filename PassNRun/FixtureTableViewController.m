@@ -19,7 +19,7 @@
 @implementation FixtureTableViewController
 
 
-@synthesize fixtureArray, fixtureTable, dateFormatter, isFixtureDrawn;
+@synthesize fixtureArray, fixtureTable, isFixtureDrawn;
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -31,15 +31,12 @@
 {
     [super viewDidLoad];
     SQLLiteManager * sqlm = [SQLLiteManager instance];
-    isFixtureDrawn = NO;
+    Current * local = [sqlm getLocalCurrent];
+    if (local.maxGames == -1)
+        isFixtureDrawn = NO;
+    else
+        isFixtureDrawn = YES;
     self.fixtureArray = [sqlm getFixture];
-    dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd.MM.yy"];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    [self.navigationController.navigationBar setHidden:YES];
 }
 
 - (void)viewDidUnload

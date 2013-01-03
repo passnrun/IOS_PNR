@@ -30,13 +30,12 @@
     [super viewDidLoad];
     
     SQLLiteManager * sqlm = [SQLLiteManager instance];
+    Current * local = [sqlm getLocalCurrent];
+    if (local.maxGames == -1)
+        isLeagueDrawn = NO;
+    else
+        isLeagueDrawn = YES;
     self.leagueTableArray = [sqlm getLeagueTable];
-    isLeagueDrawn = NO;
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload

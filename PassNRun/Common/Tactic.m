@@ -11,7 +11,7 @@
 
 @implementation Tactic
 
-@synthesize squad, substitutes, tid;
+@synthesize squad, substitutes,reserves, tid;
 
 - (NSString *)toJSON
 {
@@ -24,15 +24,17 @@
         squadJSON = [NSString stringWithFormat:@"%@ %@", squadJSON, [player toJSON]];
     }
     
-    NSString * subsJSON = @"";
     for (int i = 0; i < [substitutes count]; i++)
     {
         Player * player = [substitutes objectAtIndex:i];
-        if (i > 0)
-            subsJSON = [NSString stringWithFormat:@"%@ ,", subsJSON];
-        subsJSON = [NSString stringWithFormat:@"%@ %@", subsJSON, [player toJSON]];
+        squadJSON = [NSString stringWithFormat:@"%@ %@", squadJSON, [player toJSON]];
     }
-    NSString * json = [NSString stringWithFormat:@"{ id : %i, squad : [%@], substitutes : [%@]}", tid, squadJSON, subsJSON];
+    for (int i = 0; i < [reserves count]; i++)
+    {
+        Player * player = [reserves objectAtIndex:i];
+        squadJSON = [NSString stringWithFormat:@"%@ %@", squadJSON, [player toJSON]];
+    }
+    NSString * json = [NSString stringWithFormat:@"{ id : %i, squad : [%@]}", tid, squadJSON];
     return json;
 }
 @end
