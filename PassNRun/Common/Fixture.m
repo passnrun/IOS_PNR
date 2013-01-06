@@ -10,15 +10,7 @@
 
 @implementation Fixture
 
-@synthesize gameId;
-@synthesize homeTeamName;
-@synthesize homeTeamId;
-@synthesize awayTeamName;
-@synthesize awayTeamId;
-@synthesize homeScore;
-@synthesize awayScore;
-@synthesize week;
-@synthesize date;
-@synthesize isPlayed;
+@synthesize gameId, homeTeamName,homeScore,homeTeamId,awayScore,awayTeamId,awayTeamName,week,date,isPlayed,attendance;
+
 
 @end

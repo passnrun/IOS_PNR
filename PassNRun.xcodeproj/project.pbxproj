@@ -56,8 +56,11 @@
 		77B269C21610B7AE0053A9CF /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B269C11610B7AE0053A9CF /* News.m */; };
 		77B4543715F6682500D9A366 /* LeagueTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4543615F6682500D9A366 /* LeagueTableTableViewController.m */; };
 		77B4543A15F6688700D9A366 /* LeagueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4543915F6688700D9A366 /* LeagueTableViewCell.m */; };
+		77B8C30716982D4E0091024C /* PlayerPerformanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B8C30616982D4E0091024C /* PlayerPerformanceTableViewCell.m */; };
 		77BF5D4F15F5206B003CD36E /* FixtureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BF5D4E15F5206B003CD36E /* FixtureTableViewController.m */; };
 		77BF5D5215F523E3003CD36E /* FixtureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BF5D5115F523E3003CD36E /* FixtureTableViewCell.m */; };
+		77CA78351698E1470062E764 /* PlayerPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA78341698E1470062E764 /* PlayerPerformance.m */; };
+		77CA78391698E4170062E764 /* TeamPlayerPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA78381698E4170062E764 /* TeamPlayerPerformance.m */; };
 		77D24D951674AC4100220DCE /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D24D931674AC4100220DCE /* MainStoryboard_iPhone.storyboard */; };
 		A98880F8166B91D50036FAFD /* passnrun.db in Resources */ = {isa = PBXBuildFile; fileRef = A98880F7166B91D50036FAFD /* passnrun.db */; };
 		A98880FF166B92910036FAFD /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A98880F9166B92910036FAFD /* background.png */; };
@@ -149,10 +152,16 @@
 		77B4543615F6682500D9A366 /* LeagueTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueTableTableViewController.m; sourceTree = "<group>"; };
 		77B4543815F6688700D9A366 /* LeagueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueTableViewCell.h; sourceTree = "<group>"; };
 		77B4543915F6688700D9A366 /* LeagueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueTableViewCell.m; sourceTree = "<group>"; };
+		77B8C30516982D4E0091024C /* PlayerPerformanceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPerformanceTableViewCell.h; sourceTree = "<group>"; };
+		77B8C30616982D4E0091024C /* PlayerPerformanceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPerformanceTableViewCell.m; sourceTree = "<group>"; };
 		77BF5D4D15F5206B003CD36E /* FixtureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixtureTableViewController.h; sourceTree = "<group>"; };
 		77BF5D4E15F5206B003CD36E /* FixtureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixtureTableViewController.m; sourceTree = "<group>"; };
 		77BF5D5015F523E3003CD36E /* FixtureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixtureTableViewCell.h; sourceTree = "<group>"; };
 		77BF5D5115F523E3003CD36E /* FixtureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixtureTableViewCell.m; sourceTree = "<group>"; };
+		77CA78331698E1470062E764 /* PlayerPerformance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPerformance.h; sourceTree = "<group>"; };
+		77CA78341698E1470062E764 /* PlayerPerformance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPerformance.m; sourceTree = "<group>"; };
+		77CA78371698E4170062E764 /* TeamPlayerPerformance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamPlayerPerformance.h; sourceTree = "<group>"; };
+		77CA78381698E4170062E764 /* TeamPlayerPerformance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamPlayerPerformance.m; sourceTree = "<group>"; };
 		77D24D941674AC4100220DCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = PassNRun/en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		A98880F7166B91D50036FAFD /* passnrun.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = passnrun.db; sourceTree = "<group>"; };
 		A98880F9166B92910036FAFD /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -294,6 +303,10 @@
 				77A84F57162B618C00958378 /* Tactic.m */,
 				771AAC0416902D910072567A /* Position.h */,
 				771AAC0516902D910072567A /* Position.m */,
+				77CA78331698E1470062E764 /* PlayerPerformance.h */,
+				77CA78341698E1470062E764 /* PlayerPerformance.m */,
+				77CA78371698E4170062E764 /* TeamPlayerPerformance.h */,
+				77CA78381698E4170062E764 /* TeamPlayerPerformance.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -341,6 +354,8 @@
 				7760808515FB948500DF653E /* GameScoreTableViewCell.m */,
 				7760809115FB987200DF653E /* GameScoreTableViewController.h */,
 				7760809215FB987200DF653E /* GameScoreTableViewController.m */,
+				77B8C30516982D4E0091024C /* PlayerPerformanceTableViewCell.h */,
+				77B8C30616982D4E0091024C /* PlayerPerformanceTableViewCell.m */,
 			);
 			name = GameScore;
 			sourceTree = "<group>";
@@ -521,6 +536,9 @@
 				77B0C9BB16120D5300FDBCAA /* SquadTableViewController.m in Sources */,
 				77A84F58162B618C00958378 /* Tactic.m in Sources */,
 				771AAC0616902D910072567A /* Position.m in Sources */,
+				77B8C30716982D4E0091024C /* PlayerPerformanceTableViewCell.m in Sources */,
+				77CA78351698E1470062E764 /* PlayerPerformance.m in Sources */,
+				77CA78391698E4170062E764 /* TeamPlayerPerformance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,7 @@
 +(Response *)getFixture:(int)seasonId : (int) leagueId;
 +(Response *)getGameResultList:(int)minId : (int) managerId;
 +(Response *)getGameDetailList:(int)gameId : (int) logLevel;
++(Response *)getGameTeamStats:(int)gameId;
 +(Response *)getSquad:(int)teamId;
 +(Response *)saveSquad:(Tactic *)tactic;
 

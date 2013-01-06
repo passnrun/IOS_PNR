@@ -81,11 +81,14 @@
         FixtureTableViewCell *cell = (FixtureTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         Fixture * fixture = [self.fixtureArray objectAtIndex:indexPath.row];
         
-        if (fixture.isPlayed)
+        if (fixture.isPlayed){
             cell.score.text = [NSString stringWithFormat:@"%i : %i",fixture.homeScore, fixture.awayScore];
-        else
+            [cell.scoreButton setEnabled:YES];
+        }else{
             cell.score.text = @"- : -";
-        
+            [cell.scoreButton setEnabled:NO];
+        }
+
         cell.homeTeam.text = fixture.homeTeamName;
         cell.awayTeam.text = fixture.awayTeamName;
         

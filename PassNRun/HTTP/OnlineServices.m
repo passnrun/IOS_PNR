@@ -15,6 +15,8 @@
 #import "Response.h"
 #import "JSONParser.h"
 #import "Player.h"
+#import "PlayerPerformance.h"
+#import "TeamPlayerPerformance.h"
 
 @interface OnlineServices(){
 }
@@ -204,7 +206,43 @@
         resp.errorMessage = [directory valueForKey:@"data"];
 	}
     return resp;
+}
 
++(Response *)getGameTeamStats:(int)gameId 
+{
+    NSString * input = [NSString stringWithFormat:@"{\"gameId\" : %i, \"service\" : \"gameTeamStats\"}", gameId];
+	NSString * output = [OnlineServices postRequest:input];
+    Response * resp = [[Response alloc] init];
+	NSDictionary * directory = [JSONParser parse:output];
+	if ([[directory valueForKey:@"result"] isEqualToString:@"0"]){
+		NSDictionary * gameStats = (NSDictionary *)[directory valueForKey:@"data"];
+        NSArray * homeStats = (NSArray *)[gameStats valueForKey:@"home"];
+        NSArray * awayStats = (NSArray *)[gameStats valueForKey:@"away"];
+		NSMutableArray * homeStatList = [NSMutableArray arrayWithCapacity:11];
+		NSMutableArray * awayStatList = [NSMutableArray arrayWithCapacity:11];
+		for (NSDictionary * data in homeStats)
+		{
+			PlayerPerformance * pp = [[PlayerPerformance alloc] initWithDictionary:data];
+            [homeStatList addObject:pp];
+		}
+        for (NSDictionary * data in awayStats)
+		{
+			PlayerPerformance * pp = [[PlayerPerformance alloc] initWithDictionary:data];
+            [awayStatList addObject:pp];
+		}
+        TeamPlayerPerformance * teamPlayerPerf = [[TeamPlayerPerformance alloc]init];
+        teamPlayerPerf.awayTeam = awayStatList;
+        teamPlayerPerf.homeTeam = homeStatList;
+		NSLog(@"getGameTeamStats is successful..");
+        resp.isSuccessful= YES;
+		resp.object = teamPlayerPerf;
+		
+	}else {
+		NSLog(@"Error in getGameDetailList Response:%@", [directory valueForKey:@"data"]);
+		resp.isSuccessful= NO;
+        resp.errorMessage = [directory valueForKey:@"data"];
+	}
+    return resp;
 }
 
 +(Response *)resign:(int)managerId
@@ -251,9 +289,11 @@
 }
 
 
+
+
 +(NSString *)postRequest:(NSString *)input{
-	//NSString *urlString = @"http://pickledphotos.com/passnrun/Mobile";
-    NSString *urlString = @"http://localhost:8080/PassNRun_v1/Mobile";
+	NSString *urlString = @"http://pickledphotos.com/passnrun/Mobile";
+    //NSString *urlString = @"http://localhost:8080/PassNRun_v1/Mobile";
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	[request setURL:[NSURL URLWithString:urlString]];
 	[request setHTTPMethod:@"POST"];

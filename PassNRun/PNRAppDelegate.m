@@ -30,7 +30,8 @@
     NSLog(@"prefered language is : %@", preferredLang);
     [[UIApplication sharedApplication]
      registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-                                         UIRemoteNotificationTypeSound)];
+                                         UIRemoteNotificationTypeSound |
+                                         UIRemoteNotificationTypeAlert)];
     return YES;
 }
 

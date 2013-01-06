@@ -17,9 +17,11 @@
     int homeScore;
     int awayScore;
     int week;
+    int attendance;
     NSString * date;
     BOOL isPlayed;
 }
+
 @property (assign) int gameId;
 @property (nonatomic, retain) NSString * homeTeamName;
 @property (assign) int homeTeamId;
@@ -28,6 +30,7 @@
 @property (assign) int homeScore;
 @property (assign) int awayScore;
 @property (assign) int week;
+@property (assign) int attendance;
 @property (nonatomic, retain) NSString * date;
 @property (assign) BOOL isPlayed;
 @end

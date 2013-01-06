@@ -11,12 +11,8 @@
 
 @implementation Game
 
-@synthesize gameId;
-@synthesize team1;
-@synthesize team2;
-@synthesize season;
-@synthesize week;
-@synthesize date;
+@synthesize gameId, team1,team2,season,week,date;
+
 
 - (id)initWithDictionary : (NSDictionary *) data
 {

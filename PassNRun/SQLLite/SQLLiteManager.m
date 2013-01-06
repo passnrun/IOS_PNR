@@ -240,7 +240,7 @@ static SQLLiteManager *instance = nil;
     NSMutableArray * fixtureArray = [[NSMutableArray alloc] init];
     sqlite3_stmt *statement;
     
-    NSString * querySQL = @"SELECT F.ID, F.TEAM1, T1.NAME, F.TEAM2, T2.NAME, F.WEEK, CASE WHEN (F.SCORE1 IS NULL) THEN 0 ELSE 1 END,F.GAME_DATE,F.SCORE1, F.SCORE2 FROM FIXTURE F, TEAM T1, TEAM T2 where F.TEAM1 = T1.ID and F.TEAM2 = T2.ID order by F.ID";
+    NSString * querySQL = @"SELECT F.ID, F.TEAM1, T1.NAME, F.TEAM2, T2.NAME, F.WEEK, CASE WHEN (F.SCORE1 IS NULL) THEN 0 ELSE 1 END,F.GAME_DATE,F.SCORE1, F.SCORE2, F.ATTENDANCE FROM FIXTURE F, TEAM T1, TEAM T2 where F.TEAM1 = T1.ID and F.TEAM2 = T2.ID order by F.ID";
     NSLog(@"D - getFixture SQL: \n%@", querySQL);
     const char *query_stmt = [querySQL UTF8String];
     if (sqlite3_prepare_v2(pnrDB, query_stmt, -1, &statement,NULL) == SQLITE_OK){
@@ -252,6 +252,7 @@ static SQLLiteManager *instance = nil;
             item.awayTeamId = sqlite3_column_int(statement, 3);
             item.awayTeamName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 4)];
             item.week = sqlite3_column_int(statement, 5);
+            item.attendance = sqlite3_column_int(statement, 10);
             if (sqlite3_column_int(statement, 6) == 1)
                 item.isPlayed = YES;
             else
