@@ -19,7 +19,7 @@
 
 @implementation GameScoreTableViewController
 
-@synthesize homeTeam, awayTeam, score, gameScore, fixture, gameActionsTableView, mainScroll, pageControl, gameDetailWebView, teamPlayersPerformance,homeTeamStatsTableView,awayTeamStatsTableView,subTitle,attendance;
+@synthesize homeTeam, awayTeam, score, gameScore, fixture, gameActionsTableView, mainScroll, pageControl, gameDetailWebView, teamPlayersPerformance,homeTeamStatsTableView,awayTeamStatsTableView,subTitle,attendance, titleGoal,titleAssist,titleForm,titleMorale;
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -69,6 +69,13 @@
 }
 
 
+- (void)changeTitleVisibility:(BOOL)isHidden
+{
+    [titleForm setHidden:isHidden];
+    [titleGoal setHidden:isHidden];
+    [titleAssist setHidden:isHidden];
+    [titleMorale setHidden:isHidden];
+}
 
 - (void)viewDidUnload
 {
@@ -132,7 +139,7 @@
     {
         static NSString * CellIdentifier = @"AwayPlayerStats";
         PlayerPerformanceTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        PlayerPerformance * pp = [teamPlayersPerformance.homeTeam objectAtIndex:indexPath.row];
+        PlayerPerformance * pp = [teamPlayersPerformance.awayTeam objectAtIndex:indexPath.row];
         [cell setPlayerPerformance:pp];
         return cell;
     }
@@ -188,15 +195,19 @@
     switch (page) {
         case 0:
             subTitle.text = @"Game Summary";
+            [self changeTitleVisibility:YES];
             break;
         case 1:
             subTitle.text = @"Game Story";
+            [self changeTitleVisibility:YES];
             break;
         case 2:
             subTitle.text = [NSString stringWithFormat:@"%@ Stats", fixture.homeTeamName];
+            [self changeTitleVisibility:NO];
             break;
         case 3:
             subTitle.text = [NSString stringWithFormat:@"%@ Stats", fixture.awayTeamName];
+            [self changeTitleVisibility:NO];
             break;
         default:
             subTitle.text = @"";

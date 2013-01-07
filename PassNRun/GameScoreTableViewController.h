@@ -18,6 +18,10 @@
     IBOutlet UILabel * score;
     IBOutlet UILabel * subTitle;
     IBOutlet UILabel * attendance;
+    IBOutlet UILabel * titleGoal;
+    IBOutlet UILabel * titleAssist;
+    IBOutlet UILabel * titleMorale;
+    IBOutlet UILabel * titleForm;
     IBOutlet UITableView * gameActionsTableView;
     IBOutlet UITableView * homeTeamStatsTableView;
     IBOutlet UITableView * awayTeamStatsTableView;
@@ -34,6 +38,10 @@
 @property (nonatomic, strong) UILabel * awayTeam;
 @property (nonatomic, strong) UILabel * score;
 @property (nonatomic, strong) UILabel * subTitle;
+@property (nonatomic, strong) UILabel * titleGoal;
+@property (nonatomic, strong) UILabel * titleAssist;
+@property (nonatomic, strong) UILabel * titleMorale;
+@property (nonatomic, strong) UILabel * titleForm;
 @property (nonatomic, strong) UILabel * attendance;
 @property (nonatomic, strong) GameScore * gameScore;
 @property (nonatomic, strong) Fixture * fixture;
