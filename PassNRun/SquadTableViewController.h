@@ -12,7 +12,7 @@
 
 @interface SquadTableViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate, UIPickerViewDataSource>
 {
-    int managerId;
+    int teamId;
     Tactic * tactic;
     NSMutableArray * selectedCells;
     NSArray * formations;
@@ -30,7 +30,7 @@
 -(IBAction)backView:(id)sender;
 -(UIImage *)getImageForPositionMatch:(NSString *)nPosition:(NSString *)tPosition;
 
-@property (nonatomic, assign) int managerId;
+@property (nonatomic, assign) int teamId;
 @property (nonatomic, strong) Tactic * tactic;
 @property (nonatomic, strong) NSMutableArray * selectedCells;
 @property (nonatomic, strong) NSArray * formations;

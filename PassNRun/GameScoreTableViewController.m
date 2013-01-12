@@ -22,11 +22,6 @@
 @synthesize homeTeam, awayTeam, score, gameScore, fixture, gameActionsTableView, mainScroll, pageControl, gameDetailWebView, teamPlayersPerformance,homeTeamStatsTableView,awayTeamStatsTableView,subTitle,attendance, titleGoal,titleAssist,titleForm,titleMorale;
 
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.navigationController.navigationBar setHidden:NO];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

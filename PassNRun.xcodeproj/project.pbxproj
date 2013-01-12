@@ -12,6 +12,7 @@
 		771AAC02169029410072567A /* warning_y.png in Resources */ = {isa = PBXBuildFile; fileRef = 771AAC00169029410072567A /* warning_y.png */; };
 		771AAC0616902D910072567A /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 771AAC0516902D910072567A /* Position.m */; };
 		7728B1A11662513000728265 /* league_table_header.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728B1A01662513000728265 /* league_table_header.png */; };
+		772F1FAD169E00ED0096EEF7 /* detailDisclosureButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 772F1FAC169E00ED0096EEF7 /* detailDisclosureButton.png */; };
 		7730CFDA15F3D94F00502E9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7730CFD915F3D94F00502E9F /* UIKit.framework */; };
 		7730CFDC15F3D94F00502E9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7730CFDB15F3D94F00502E9F /* Foundation.framework */; };
 		7730CFDE15F3D94F00502E9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7730CFDD15F3D94F00502E9F /* CoreGraphics.framework */; };
@@ -47,6 +48,7 @@
 		7760809315FB987200DF653E /* GameScoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7760809215FB987200DF653E /* GameScoreTableViewController.m */; };
 		7760809615FB99DE00DF653E /* GameScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7760809515FB99DE00DF653E /* GameScore.m */; };
 		7760809915FB9ADE00DF653E /* GameScoreItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7760809815FB9ADE00DF653E /* GameScoreItem.m */; };
+		778BD13A169DD54A00444670 /* PlayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 778BD139169DD54A00444670 /* PlayerDetailViewController.m */; };
 		77A84F58162B618C00958378 /* Tactic.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A84F57162B618C00958378 /* Tactic.m */; };
 		77B0C9B516120A8900FDBCAA /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B0C9B416120A8800FDBCAA /* Player.m */; };
 		77B0C9B816120C4000FDBCAA /* SquadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B0C9B716120C4000FDBCAA /* SquadTableViewCell.m */; };
@@ -77,6 +79,7 @@
 		771AAC0416902D910072567A /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
 		771AAC0516902D910072567A /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Position.m; sourceTree = "<group>"; };
 		7728B1A01662513000728265 /* league_table_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = league_table_header.png; sourceTree = "<group>"; };
+		772F1FAC169E00ED0096EEF7 /* detailDisclosureButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detailDisclosureButton.png; sourceTree = "<group>"; };
 		7730CFD515F3D94F00502E9F /* PassNRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassNRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7730CFD915F3D94F00502E9F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7730CFDB15F3D94F00502E9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -134,6 +137,8 @@
 		7760809515FB99DE00DF653E /* GameScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScore.m; sourceTree = "<group>"; };
 		7760809715FB9ADE00DF653E /* GameScoreItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScoreItem.h; sourceTree = "<group>"; };
 		7760809815FB9ADE00DF653E /* GameScoreItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScoreItem.m; sourceTree = "<group>"; };
+		778BD138169DD54A00444670 /* PlayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDetailViewController.h; sourceTree = "<group>"; };
+		778BD139169DD54A00444670 /* PlayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDetailViewController.m; sourceTree = "<group>"; };
 		77A84F56162B618C00958378 /* Tactic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tactic.h; sourceTree = "<group>"; };
 		77A84F57162B618C00958378 /* Tactic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tactic.m; sourceTree = "<group>"; };
 		77B0C9B316120A8800FDBCAA /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -190,6 +195,7 @@
 		7728B19E1662511700728265 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				772F1FAC169E00ED0096EEF7 /* detailDisclosureButton.png */,
 				7728B1A01662513000728265 /* league_table_header.png */,
 			);
 			name = Images;
@@ -360,6 +366,15 @@
 			name = GameScore;
 			sourceTree = "<group>";
 		};
+		778BD136169DD51300444670 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				778BD138169DD54A00444670 /* PlayerDetailViewController.h */,
+				778BD139169DD54A00444670 /* PlayerDetailViewController.m */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
 		77B0C9B1161209D300FDBCAA /* Tactics */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +413,7 @@
 		77B4543315F6675200D9A366 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				778BD136169DD51300444670 /* Player */,
 				77B0C9B1161209D300FDBCAA /* Tactics */,
 				77B269B81610B4E40053A9CF /* News */,
 				7760808215FB907F00DF653E /* GameScore */,
@@ -494,6 +510,7 @@
 				77D24D951674AC4100220DCE /* MainStoryboard_iPhone.storyboard in Resources */,
 				771AAC01169029410072567A /* warning_r.png in Resources */,
 				771AAC02169029410072567A /* warning_y.png in Resources */,
+				772F1FAD169E00ED0096EEF7 /* detailDisclosureButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +556,7 @@
 				77B8C30716982D4E0091024C /* PlayerPerformanceTableViewCell.m in Sources */,
 				77CA78351698E1470062E764 /* PlayerPerformance.m in Sources */,
 				77CA78391698E4170062E764 /* TeamPlayerPerformance.m in Sources */,
+				778BD13A169DD54A00444670 /* PlayerDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

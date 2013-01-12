@@ -12,6 +12,7 @@
 #import "OnlineServices.h"
 #import "SQLLiteManager.h"
 #import "Position.h"
+#import "PlayerDetailViewController.h"
 
 
 @interface SquadTableViewController ()
@@ -20,7 +21,7 @@
 
 @implementation SquadTableViewController
 
-@synthesize managerId, tactic, selectedCells, swapButton, squadTable, formations, formationPicker, useFormationButton, title;
+@synthesize teamId, tactic, selectedCells, swapButton, squadTable, formations, formationPicker, useFormationButton, title;
 
 - (NSArray *) getPositionListForSelectedFormation:(NSInteger)index
 {
@@ -82,9 +83,9 @@
     [swapButton setEnabled:NO];
     selectedCells = [[NSMutableArray alloc]initWithCapacity:2];
     Current * current = [sqlm getLocalCurrent];
-    managerId = current.managerId;
+    teamId = current.teamId;
     //title.text = [sqlm getTeamNameWithId:current.teamId];
-    Response * resp = [OnlineServices getSquad:managerId];
+    Response * resp = [OnlineServices getSquad:teamId];
     tactic = (Tactic *)resp.object;
     self.formations = @[@"4-4-2",@"4-5-1",@"3-5-2",@"4-3-3"];
     [self.navigationController.navigationBar setHidden:NO];
@@ -112,7 +113,7 @@
 {
     if (player != nil)
     {
-        cell.playerName.text = [NSString stringWithFormat:@"%@(%@)",player.name, player.nativePosition];
+        cell.playerName.text = player.name;
         cell.position.text = player.position;
         if ([player.latestForm isEqualToString:@"null"])
             cell.latestForm.text = @"-";
@@ -146,6 +147,14 @@
             [self table:tableView colorCellAtIndexPath:indexPath :YES : cell];
         return cell;
     }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath * indexPath = [squadTable indexPathForCell: (UITableViewCell *)[[sender superview] superview]];
+    Player * player = [self getPlayerFrom:indexPath];
+    PlayerDetailViewController * pdController = [segue destinationViewController];
+    pdController.playerId = player.pid;
 }
 
 
@@ -308,7 +317,7 @@
     if (!resp.isSuccessful)
         message = resp.errorMessage;
     else{
-        resp = [OnlineServices getSquad:managerId];
+        resp = [OnlineServices getSquad:teamId];
         tactic = (Tactic *)resp.object;
         [self.squadTable reloadData];
     }

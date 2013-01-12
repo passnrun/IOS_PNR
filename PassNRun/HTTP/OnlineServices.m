@@ -288,7 +288,25 @@
     return resp;
 }
 
-
++(Response *)getPlayerDetail:(int)playerId
+{
+	NSString * input = [NSString stringWithFormat:@"{\"playerId\" : %i, \"service\" : \"player\"}", playerId];
+	NSString * output = [OnlineServices postRequest:input];
+    Response * resp = [[Response alloc] init];
+	NSDictionary * directory = [JSONParser parse:output];
+	if ([[directory valueForKey:@"result"] isEqualToString:@"0"]){
+		NSDictionary * player = (NSDictionary *)[directory valueForKey:@"data"];
+        NSLog(@"getPlayerDetail is successful..");
+        resp.isSuccessful= YES;
+		resp.object = player;
+		
+	}else {
+		NSLog(@"Error in getPlayerDetail Response:%@", [directory valueForKey:@"data"]);
+		resp.isSuccessful= NO;
+        resp.errorMessage = [directory valueForKey:@"data"];
+	}
+    return resp;
+}
 
 
 +(NSString *)postRequest:(NSString *)input{

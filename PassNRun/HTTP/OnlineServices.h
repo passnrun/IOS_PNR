@@ -24,6 +24,7 @@
 +(Response *)getGameDetailList:(int)gameId : (int) logLevel;
 +(Response *)getGameTeamStats:(int)gameId;
 +(Response *)getSquad:(int)teamId;
++(Response *)getPlayerDetail:(int)playerId;
 +(Response *)saveSquad:(Tactic *)tactic;
 
 
