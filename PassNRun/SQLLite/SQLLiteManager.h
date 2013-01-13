@@ -11,6 +11,7 @@
 #import "Current.h"
 #import "Team.h"
 #import "Game.h"
+#import "News.h"
 #import "GameResult.h"
 #import "Fixture.h"
 #import "LeagueTableRow.h"
@@ -31,9 +32,11 @@
 - (BOOL)deleteManagerWith:(int)managerId;
 - (BOOL)insertTeam:(Team *)team;
 - (BOOL)insertGame:(Game *)game;
+- (BOOL)insertNews:(News *)news;
 - (BOOL)updateGameResult:(GameResult *)gameResult;
 - (NSArray *) getFixture;
 - (NSArray *) getLeagueTable;
+- (NSArray *) getNews:(int)managerId;
 - (NSString *) getTeamNameWithId:(int)teamId;
 
 @end

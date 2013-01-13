@@ -21,6 +21,7 @@
 +(Response *)getTeamList:(int)leagueId;
 +(Response *)getFixture:(int)seasonId : (int) leagueId;
 +(Response *)getGameResultList:(int)minId : (int) managerId;
++(Response *)getNewsList:(int)minId : (int) managerId;
 +(Response *)getGameDetailList:(int)gameId : (int) logLevel;
 +(Response *)getGameTeamStats:(int)gameId;
 +(Response *)getSquad:(int)teamId;

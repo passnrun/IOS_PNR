@@ -82,6 +82,27 @@ static SQLLiteManager *instance = nil;
         NSLog(@"E - Database Open Failed with reason:%i",res);
 }
 
+-(BOOL)insertNews:(News *)news{
+	NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO NEWS (ID, MANAGER_ID, RECEIVE_DATE,SUBJECT) VALUES (%i, %i, '%@', '%@')", news.nid, news.managerId, news.date, news.subject];
+    BOOL result = NO;
+    NSLog(@"D - insertNews:\n%@",insertSQL);
+    
+    const char * insert_stmt = [insertSQL UTF8String];
+    sqlite3_stmt * statement;
+    sqlite3_prepare_v2(pnrDB, insert_stmt, -1, &statement, NULL);
+    if (sqlite3_step(statement) == SQLITE_DONE){
+        NSLog(@"I - insertNews is completed successfully");
+        result = YES;
+    }
+    else{
+        NSLog(@"E - insertNews is failed");
+        result = NO;
+    }
+    sqlite3_finalize(statement);
+    
+	return result;
+}
+
 -(BOOL)insertManagerWith:(int)managerId And:(int)teamId{    
 	NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO CURRENT (MANAGER_ID, TEAM_ID, MAX_GAMES) VALUES (%i, %i, %i)", managerId, teamId, -1];
     BOOL result = NO;
@@ -272,7 +293,28 @@ static SQLLiteManager *instance = nil;
     
     return fixtureArray;
 }
-
+- (NSArray *) getNews:(int)managerId
+{
+    NSMutableArray * tableArray = [[NSMutableArray alloc] init];
+    sqlite3_stmt *statement;
+    
+    NSString * querySQL = [NSString stringWithFormat:@"SELECT ID, RECEIVE_DATE, SUBJECT from NEWS where MANAGER_ID = %i order by ID desc", managerId];
+    NSLog(@"D - getNews SQL: \n%@", querySQL);
+    const char *query_stmt = [querySQL UTF8String];
+    if (sqlite3_prepare_v2(pnrDB, query_stmt, -1, &statement,NULL) == SQLITE_OK){
+        while (sqlite3_step(statement) == SQLITE_ROW){
+            News * news = [[News alloc] init];
+            news.nid      = sqlite3_column_int(statement, 0);
+            news.date    = [NSString stringWithCString:sqlite3_column_text(statement, 1) encoding: NSUTF8StringEncoding];
+            news.subject    = [NSString stringWithCString:sqlite3_column_text(statement, 2) encoding: NSUTF8StringEncoding];
+            [tableArray addObject:news];
+        }
+        sqlite3_finalize(statement);
+    }else
+        NSLog(@"E - getNews Error");
+    
+    return tableArray;
+}
 - (NSArray *) getLeagueTable{
     NSMutableArray * tableArray = [[NSMutableArray alloc] init];
     sqlite3_stmt *statement;
@@ -326,6 +368,7 @@ static SQLLiteManager *instance = nil;
 -(BOOL)executeSql:(NSString *)sql{
     char *errMsg;
     const char * sql_stmt = [sql UTF8String];
+    NSLog(sql);
     if (sqlite3_exec(pnrDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK)
     {
         NSLog(@"E - executeSQL is failed for SQL :\n%@ \nError : %s ",sql, errMsg);

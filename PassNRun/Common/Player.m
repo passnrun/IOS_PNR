@@ -10,7 +10,7 @@
 
 @implementation Player
 
-@synthesize pid, name, position, age, countryCode, latestForm, nativePosition, quality;
+@synthesize pid, name, position, age, countryCode, latestForm, nativePosition, fitness,morale;
 
 - (id)initWithDictionary:(NSDictionary *)player
 {
@@ -22,7 +22,8 @@
         self.position = (NSString *)[player valueForKey:@"position"];
         self.nativePosition = (NSString *)[player valueForKey:@"nativePosition"];
         self.latestForm = (NSString *)[player valueForKey:@"latestForm"];
-        self.quality = (NSString *)[player valueForKey:@"quality"];
+        self.fitness = (NSString *)[player valueForKey:@"fitness"];
+        self.morale = (NSString *)[player valueForKey:@"morale"];
     }
     return self;
 }

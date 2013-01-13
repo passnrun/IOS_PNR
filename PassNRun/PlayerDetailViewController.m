@@ -30,21 +30,26 @@
 {
     [super viewDidLoad];
     [mainScroll setContentSize:CGSizeMake(600, 1)];
-	Response * response = [OnlineServices getPlayerDetail:playerId];
-    if (response.isSuccessful)
-    {
-        player = (NSDictionary *)response.object;
-        [self fillFormValues];
-    }else {
-        NSLog(@"Error in Player Detail Service %@ ",response.errorMessage);
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:response.errorMessage
-                                                        message:nil
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        [alert release];
-    }
+    dispatch_async(dispatch_get_global_queue(0, 0), ^ {
+        Response * response = [OnlineServices getPlayerDetail:playerId];
+        dispatch_async( dispatch_get_main_queue(), ^{
+            if (response.isSuccessful)
+            {
+                player = (NSDictionary *)response.object;
+                [self fillFormValues];
+            }else {
+                NSLog(@"Error in Player Detail Service %@ ",response.errorMessage);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:response.errorMessage
+                                                                message:nil
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                [alert release];
+            }
+        });
+        
+    });
 }
 
 - (void)didReceiveMemoryWarning

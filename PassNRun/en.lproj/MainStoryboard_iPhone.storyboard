@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="yze-ud-K2w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3081" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="yze-ud-K2w">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2080"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -46,6 +46,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="6bp-IF-PTv" kind="push" id="gcj-y4-CCf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q2a-Vj-5Xh">
                                 <rect key="frame" x="171" y="20" width="129" height="100"/>
@@ -169,28 +172,35 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Sqg-Hk-WFT">
                                 <rect key="frame" x="19" y="69" width="52" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="0Ky-tp-klp">
                                 <rect key="frame" x="79" y="69" width="81" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Age" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="p0m-F9-Ovd" userLabel="Label - Age">
-                                <rect key="frame" x="193" y="69" width="38" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fit." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="p0m-F9-Ovd" userLabel="Label - Fitness">
+                                <rect key="frame" x="170" y="69" width="38" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mrl." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Elm-EQ-0gV" userLabel="Label - Morale">
+                                <rect key="frame" x="202" y="69" width="38" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Form" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="4MK-N0-y7A">
-                                <rect key="frame" x="227" y="69" width="45" height="21"/>
+                                <rect key="frame" x="233" y="69" width="45" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -239,7 +249,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="7/7/7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xwo-hT-DPd">
-                                                    <rect key="frame" x="213" y="2" width="50" height="21"/>
+                                                    <rect key="frame" x="215" y="2" width="50" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -253,25 +263,35 @@
                                                     <color key="highlightedColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="A. Candan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bc3-Vr-zYk">
-                                                    <rect key="frame" x="71" y="2" width="116" height="21"/>
+                                                    <rect key="frame" x="71" y="2" width="89" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="em2-Ml-WMi" userLabel="Label - Age">
-                                                    <rect key="frame" x="186" y="2" width="29" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="77" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="em2-Ml-WMi" userLabel="Label - Fitness">
+                                                    <rect key="frame" x="157" y="2" width="29" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0kJ-5n-S7z">
-                                                    <rect key="frame" x="270" y="4" width="20" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="77" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kKl-CR-ZPu" userLabel="Label - Morale">
+                                                    <rect key="frame" x="190" y="2" width="29" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="detailDisclosureButton.png" id="F78-4d-JH7">
+                                                    <rect key="frame" x="273" y="6" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tQP-rx-0m4">
+                                                    <rect key="frame" x="259" y="0.0" width="35" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <state key="normal" title="Button" image="detailDisclosureButton.png">
+                                                    <state key="normal">
                                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -279,7 +299,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="8HJ-5L-r3C" kind="push" id="f0M-Og-7WZ"/>
+                                                        <segue destination="8HJ-5L-r3C" kind="push" id="QIB-oI-V1W"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -287,8 +307,9 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="age" destination="em2-Ml-WMi" id="lAl-2S-OtR"/>
+                                            <outlet property="fitness" destination="em2-Ml-WMi" id="ii5-3h-XBo"/>
                                             <outlet property="latestForm" destination="Xwo-hT-DPd" id="W2I-FD-yg9"/>
+                                            <outlet property="morale" destination="kKl-CR-ZPu" id="LUH-06-QQy"/>
                                             <outlet property="playerName" destination="Bc3-Vr-zYk" id="o4r-fT-9Ue"/>
                                             <outlet property="position" destination="F2i-Ok-4Cc" id="veT-nL-GoC"/>
                                             <outlet property="positionMatchImage" destination="IKK-N4-8Q3" id="xTG-IQ-kgd"/>
@@ -374,14 +395,6 @@
                                     <action selector="saveSquad:" destination="8Tt-Gc-hD5" eventType="touchUpInside" id="CXY-MQ-Nfz"/>
                                 </connections>
                             </button>
-                            <pickerView hidden="YES" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" id="1RJ-E0-Qty">
-                                <rect key="frame" x="10" y="199" width="300" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="8Tt-Gc-hD5" id="pJV-Ua-lgK"/>
-                                    <outlet property="delegate" destination="8Tt-Gc-hD5" id="8VD-44-AL0"/>
-                                </connections>
-                            </pickerView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f6G-ic-LdI">
                                 <rect key="frame" x="227" y="293" width="69" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -397,6 +410,14 @@
                                     <action selector="setFormation:" destination="8Tt-Gc-hD5" eventType="touchUpInside" id="Q9S-wq-Uyl"/>
                                 </connections>
                             </button>
+                            <pickerView hidden="YES" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" id="1RJ-E0-Qty" userLabel="Formation - Picker">
+                                <rect key="frame" x="10" y="199" width="300" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Tt-Gc-hD5" id="pJV-Ua-lgK"/>
+                                    <outlet property="delegate" destination="8Tt-Gc-hD5" id="8VD-44-AL0"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -553,7 +574,7 @@
                                                 <color key="textColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="highlightedColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Condition" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bkS-Gf-IIn" userLabel="Label - Condition">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fitness" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bkS-Gf-IIn" userLabel="Label - Condition">
                                                 <rect key="frame" x="12" y="144" width="116" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
@@ -1535,6 +1556,21 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="X9h-mg-LzS" userLabel="Player Info Button">
+                                                            <rect key="frame" x="49" y="0.0" width="97" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                            <state key="normal">
+                                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <state key="highlighted">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <segue destination="8HJ-5L-r3C" kind="push" identifier="HomePlayerSegue" id="hJe-gP-lNg"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1612,6 +1648,21 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1g6-K1-9vN" userLabel="Away Player Button">
+                                                            <rect key="frame" x="50" y="0.0" width="96" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                            <state key="normal">
+                                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <state key="highlighted">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <segue destination="8HJ-5L-r3C" kind="push" identifier="AwayPlayerSegue" id="dkp-2P-H1Q"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1859,38 +1910,89 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CCg-FD-QY9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="221"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" image="background.png" id="OaW-xg-MVz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" image="header.png" id="Hpg-lO-btG">
+                                <rect key="frame" x="10" y="8" width="300" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" image="body.png" id="J6V-6Y-Bbr">
+                                <rect key="frame" x="9" y="62" width="302" height="227"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" image="body.png" id="0kQ-do-vgy">
+                                <rect key="frame" x="9" y="293" width="300" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="News" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jz9-O1-abg">
+                                <rect key="frame" x="102" y="16" width="196" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                <color key="textColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9qF-AX-vue">
+                                <rect key="frame" x="15" y="16" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backView:" destination="6y1-N8-a2o" eventType="touchUpInside" id="84f-GS-cMn"/>
+                                    <action selector="backView:" destination="6bp-IF-PTv" eventType="touchUpInside" id="dPX-dz-jYd"/>
+                                </connections>
+                            </button>
+                            <webView opaque="NO" contentMode="scaleToFill" id="BHG-rY-MBq">
+                                <rect key="frame" x="9" y="293" width="300" height="160"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="27" sectionHeaderHeight="22" sectionFooterHeight="22" id="CCg-FD-QY9">
+                                <rect key="frame" x="10" y="65" width="300" height="221"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="NewsCell" id="zyR-T6-ozS" customClass="NewsTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="27" id="zyR-T6-ozS" customClass="NewsTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="300" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="26"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dlz-eQ-BRF">
-                                                    <rect key="frame" x="20" y="11" width="222" height="21"/>
+                                                <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" image="table_cell_border.png" id="7NV-Sd-2uZ">
+                                                    <rect key="frame" x="6" y="1" width="288" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="22.11.13" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="5tK-Ez-g0d" userLabel="Label - Date">
+                                                    <rect key="frame" x="9" y="5" width="72" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ddZ-Zb-irO">
-                                                    <rect key="frame" x="258" y="11" width="36" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Gpu-ZW-vLe">
+                                                    <rect key="frame" x="77" y="5" width="211" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" red="0.99607843139999996" green="0.89934990879999999" blue="0.44462819339999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="date" destination="ddZ-Zb-irO" id="eaA-0t-Qvb"/>
-                                            <outlet property="subject" destination="dlz-eQ-BRF" id="J7s-Ie-qDD"/>
+                                            <outlet property="date" destination="5tK-Ez-g0d" id="lE7-Du-eQ1"/>
+                                            <outlet property="subject" destination="Gpu-ZW-vLe" id="ork-Re-t95"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1899,11 +2001,6 @@
                                     <outlet property="delegate" destination="6bp-IF-PTv" id="p9a-nP-wNN"/>
                                 </connections>
                             </tableView>
-                            <webView contentMode="scaleToFill" id="BHG-rY-MBq">
-                                <rect key="frame" x="0.0" y="266" width="320" height="238"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1915,7 +2012,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kni-2D-mac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="155" y="-1236"/>
+            <point key="canvasLocation" x="-17" y="-924"/>
         </scene>
         <!--Register Modal View Controller-->
         <scene sceneID="WsO-Rk-cJw">
@@ -2120,6 +2217,7 @@
         <class className="NewsTableViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsTableViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backView:"/>
                 <relationship kind="outlet" name="newsDetails" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="newsTable" candidateClass="UITableView"/>
             </relationships>
@@ -2195,12 +2293,12 @@
         <class className="SquadTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SquadTableViewCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="age" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fitness" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="latestForm" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="morale" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="playerName" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="position" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="positionMatchImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="quality" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="SquadTableViewController" superclassName="UIViewController">
@@ -2224,4 +2322,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="hJe-gP-lNg"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -146,6 +146,21 @@
                     }
                 }
             }
+            if (local.maxNews != server.maxNews)
+            {
+                response = [OnlineServices getNewsList:local.maxNews :local.managerId];
+                if (!response.isSuccessful) {
+                    NSLog(@"%@",response.errorMessage);
+                    return ;
+                }
+                NSArray * newsList = (NSArray *)response.object;
+                for (News * news in newsList)
+                {
+                    ok = ok && [sqlm insertNews:news];
+                }
+
+            }
+
             
         });
     }

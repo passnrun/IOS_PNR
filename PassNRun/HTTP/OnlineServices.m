@@ -15,6 +15,7 @@
 #import "Response.h"
 #import "JSONParser.h"
 #import "Player.h"
+#import "News.h"
 #import "PlayerPerformance.h"
 #import "TeamPlayerPerformance.h"
 
@@ -285,6 +286,32 @@
 		resp.isSuccessful= NO;
         resp.errorMessage = [directory valueForKey:@"data"];
 	}	
+    return resp;
+}
+
++(Response *)getNewsList:(int)minId : (int) managerId
+{
+	NSString * input = [NSString stringWithFormat:@"{\"minId\" : %i, \"managerId\" : %i, \"service\" : \"news\"}", minId, managerId];
+	NSString * output = [OnlineServices postRequest:input];
+    Response * resp = [[Response alloc] init];
+	NSDictionary * directory = [JSONParser parse:output];
+	if ([[directory valueForKey:@"result"] isEqualToString:@"0"]){
+		NSArray * grList = (NSArray *)[directory valueForKey:@"data"];
+		NSMutableArray * outputList = [NSMutableArray arrayWithCapacity:8];
+		for (NSDictionary * data in grList)
+		{
+			News * news = [[News alloc] initWithDictionarty:data];
+            [outputList addObject:news];
+		}
+		NSLog(@"getNewsList is successful..");
+        resp.isSuccessful= YES;
+		resp.object = outputList;
+		
+	}else {
+		NSLog(@"Error in getNewsList Response:%@", [directory valueForKey:@"data"]);
+		resp.isSuccessful= NO;
+        resp.errorMessage = [directory valueForKey:@"data"];
+	}
     return resp;
 }
 

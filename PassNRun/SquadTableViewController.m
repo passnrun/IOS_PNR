@@ -71,11 +71,6 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.navigationController.navigationBar setHidden:NO];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -88,7 +83,6 @@
     Response * resp = [OnlineServices getSquad:teamId];
     tactic = (Tactic *)resp.object;
     self.formations = @[@"4-4-2",@"4-5-1",@"3-5-2",@"4-3-3"];
-    [self.navigationController.navigationBar setHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,8 +114,8 @@
         else
             cell.latestForm.text = player.latestForm;
         cell.positionMatchImage.image = [self getImageForPositionMatch:player.nativePosition :player.position];
-        cell.quality.text = player.quality;
-        cell.age.text = [NSString stringWithFormat:@"%i", player.age];
+        cell.fitness.text = player.fitness;
+        cell.morale.text = player.morale;
     }
 }
 
@@ -205,8 +199,8 @@
     cell.playerName.highlighted = isSelected;
     cell.position.highlighted = isSelected;
     cell.latestForm.highlighted = isSelected;
-    cell.quality.highlighted = isSelected;
-    cell.age.highlighted = isSelected;
+    cell.fitness.highlighted = isSelected;
+    cell.morale.highlighted = isSelected;
 }
 
 #pragma mark - Table view delegate

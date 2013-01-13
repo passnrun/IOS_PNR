@@ -8,26 +8,13 @@
 
 #import "NewsTableViewController.h"
 #import "NewsTableViewCell.h"
+#import "SQLLiteManager.h"
 #import "News.h"
 
 
 @implementation NewsTableViewController
 
 @synthesize newsDetails, newsArray, newsTable;
-
-- (void)getSampleNews
-{
-    NSMutableArray * news = [[NSMutableArray alloc] initWithCapacity:5];
-    for (int i = 0; i<20; i++) {
-        News * n = [[News alloc]init];
-        n.id = i + 1;
-        n.subject = [NSString stringWithFormat:@"Subject : %i", n.id];
-        n.date = @"11.11.11";
-        n.content = [NSString stringWithFormat:@"<p>Hey Man</p><p>Did yo hear the news?</p><p>Subject : %i</p>", n.id];
-        [news addObject:n];
-    }
-    newsArray = news;
-}
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -38,15 +25,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setHidden:NO];
-    [self getSampleNews];
+    SQLLiteManager * sqlm = [SQLLiteManager instance];
+    Current * local = [sqlm getLocalCurrent];
+    self.newsArray = [sqlm getNews:local.managerId];
+}
 
+- (void)viewDidAppear:(BOOL)animated {
+    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+    if ([newsArray count] > 0)
+        [newsTable selectRowAtIndexPath:indexPath animated:YES  scrollPosition:UITableViewScrollPositionNone];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)backView:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -61,7 +58,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [newsArray count];
+    return [self.newsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -115,13 +112,27 @@
 }
 */
 
+- (void) cell:(NewsTableViewCell *)cell isSelected:(BOOL)selected
+{
+    [cell.subject setHighlighted:selected];
+    [cell.date setHighlighted:selected];
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     News * news = [self.newsArray objectAtIndex:indexPath.row];
-    NSURL * url = [[NSURL alloc]initWithString:@"http://google.com"];
-    [self.newsDetails loadHTMLString:news.content baseURL:url];
+    NewsTableViewCell * cell = (NewsTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [self cell:cell isSelected:YES];
+    [newsDetails loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://pickledphotos.com/passnrun/News?newsId=%i", news.nid]]]];
+    //[newsDetails loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8080/PassNRun_v1/News?newsId=%i", news.nid]]]];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NewsTableViewCell * cell = (NewsTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [self cell:cell isSelected:NO];
 }
 
 @end

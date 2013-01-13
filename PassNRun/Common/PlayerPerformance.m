@@ -15,6 +15,7 @@
 {
     if (self = [super init])
     {
+        self.pid = [(NSString *)[data valueForKey:@"playerId"] intValue];
         self.name = [data valueForKey:@"name"];
         self.position = [data valueForKey:@"position"];
         self.form = [data valueForKey:@"form"];

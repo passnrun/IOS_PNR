@@ -13,15 +13,15 @@
     IBOutlet UILabel * playerName;
     IBOutlet UILabel * latestForm;
     IBOutlet UILabel * position;
-    IBOutlet UILabel * age;
-    IBOutlet UILabel * quality;
+    IBOutlet UILabel * fitness;
+    IBOutlet UILabel * morale;
     IBOutlet UIImageView * positionMatchImage;
 }
 
 @property (nonatomic, strong) UILabel * playerName;
 @property (nonatomic, strong) UILabel * latestForm;
 @property (nonatomic, strong) UILabel * position;
-@property (nonatomic, strong) UILabel * age;
-@property (nonatomic, strong) UILabel * quality;
+@property (nonatomic, strong) UILabel * fitness;
+@property (nonatomic, strong) UILabel * morale;
 @property (nonatomic, strong) UIImageView * positionMatchImage;
 @end

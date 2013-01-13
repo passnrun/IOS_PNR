@@ -10,15 +10,19 @@
 
 @interface News : NSObject
 {
-    int id;
+    int nid;
+    int managerId;
     NSString * subject;
     NSString * date;
     NSString * content;
 }
 
-@property(nonatomic,assign) int id;
+@property(nonatomic,assign) int nid;
+@property(nonatomic,assign) int managerId;
 @property(nonatomic,strong) NSString * subject;
 @property(nonatomic,strong) NSString * date;
 @property(nonatomic,strong) NSString * content;
+
+- (id)initWithDictionarty :(NSDictionary *)data;
 
 @end

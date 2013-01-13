@@ -18,4 +18,7 @@
 @property(nonatomic,strong) NSArray * newsArray;
 @property(nonatomic,strong) UIWebView * newsDetails;
 @property(nonatomic,strong) UITableView * newsTable;
+
+-(IBAction)backView:(id)sender;
+
 @end

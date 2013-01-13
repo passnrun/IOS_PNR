@@ -15,7 +15,8 @@
     NSString * position;
     NSString * nativePosition;
     NSString * latestForm;
-    NSString * quality;
+    NSString * fitness;
+    NSString * morale;
     int age;
     NSString * countryCode;
 }
@@ -26,7 +27,8 @@
 @property (nonatomic, assign) int age;
 @property (nonatomic, assign) int pid;
 @property (nonatomic, strong) NSString * countryCode;
-@property (nonatomic, strong) NSString * quality;
+@property (nonatomic, strong) NSString * fitness;
+@property (nonatomic, strong) NSString * morale;
 
 - (id) initWithDictionary :(NSDictionary *)player;
 - (NSString *)toJSON;

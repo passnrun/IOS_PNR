@@ -10,6 +10,7 @@
 
 @interface PlayerPerformance : NSObject
 {
+    int pid;
 	NSString * name;
 	NSString * position;
 	NSString * form;
@@ -25,6 +26,7 @@
 @property (nonatomic) int assist;
 @property (nonatomic) int goal;
 @property (nonatomic) int morale;
+@property (nonatomic) int pid;
 
 - (id) initWithDictionary:(NSDictionary *)data;
 @end

@@ -10,6 +10,7 @@
 #import "GameScoreTableViewCell.h"
 #import "Common/GameScoreItem.h"
 #import "PlayerPerformanceTableViewCell.h"
+#import "PlayerDetailViewController.h"
 #import "OnlineServices.h"
 
 
@@ -100,6 +101,24 @@
     else if (tableView == awayTeamStatsTableView)
         return [teamPlayersPerformance.awayTeam count];
         
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"AwayPlayerSegue"])
+    {
+        NSIndexPath * indexPath = [awayTeamStatsTableView indexPathForCell: (UITableViewCell *)[[sender superview] superview]];
+        PlayerPerformance * pp = [teamPlayersPerformance.awayTeam objectAtIndex:indexPath.row];
+        PlayerDetailViewController * pdController = [segue destinationViewController];
+        pdController.playerId = pp.pid;;
+    }
+    else if ([[segue identifier] isEqualToString:@"HomePlayerSegue"])
+    {
+        NSIndexPath * indexPath = [homeTeamStatsTableView indexPathForCell: (UITableViewCell *)[[sender superview] superview]];
+        PlayerPerformance * pp = [teamPlayersPerformance.homeTeam objectAtIndex:indexPath.row];
+        PlayerDetailViewController * pdController = [segue destinationViewController];
+        pdController.playerId = pp.pid;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
