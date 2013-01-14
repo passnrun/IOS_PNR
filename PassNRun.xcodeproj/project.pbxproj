@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7703082016A472F600D611AD /* PNRBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7703081F16A472F600D611AD /* PNRBaseViewController.m */; };
 		770D3C68163AF0AC008EC8AB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770D3C67163AF0AC008EC8AB /* Default-568h@2x.png */; };
 		771AAC01169029410072567A /* warning_r.png in Resources */ = {isa = PBXBuildFile; fileRef = 771AABFF169029410072567A /* warning_r.png */; };
 		771AAC02169029410072567A /* warning_y.png in Resources */ = {isa = PBXBuildFile; fileRef = 771AAC00169029410072567A /* warning_y.png */; };
@@ -73,6 +74,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7703081E16A472F600D611AD /* PNRBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNRBaseViewController.h; sourceTree = "<group>"; };
+		7703081F16A472F600D611AD /* PNRBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNRBaseViewController.m; sourceTree = "<group>"; };
 		770D3C67163AF0AC008EC8AB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		771AABFF169029410072567A /* warning_r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning_r.png; sourceTree = "<group>"; };
 		771AAC00169029410072567A /* warning_y.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning_y.png; sourceTree = "<group>"; };
@@ -421,6 +424,8 @@
 				7730D03E15F3E6FF00502E9F /* RegisterModalViewController.m */,
 				77B4543415F6678A00D9A366 /* LeagueTable */,
 				77B4543115F6674900D9A366 /* Fixture */,
+				7703081E16A472F600D611AD /* PNRBaseViewController.h */,
+				7703081F16A472F600D611AD /* PNRBaseViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				77CA78351698E1470062E764 /* PlayerPerformance.m in Sources */,
 				77CA78391698E4170062E764 /* TeamPlayerPerformance.m in Sources */,
 				778BD13A169DD54A00444670 /* PlayerDetailViewController.m in Sources */,
+				7703082016A472F600D611AD /* PNRBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

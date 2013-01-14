@@ -71,17 +71,27 @@
     
 }
 
-- (void)viewDidLoad
+- (Response *)queryFormData
 {
-    [super viewDidLoad];
     SQLLiteManager *sqlm=[SQLLiteManager instance];
-    [swapButton setEnabled:NO];
-    selectedCells = [[NSMutableArray alloc]initWithCapacity:2];
     Current * current = [sqlm getLocalCurrent];
     teamId = current.teamId;
+    return [OnlineServices getSquad:teamId];
+}
+
+-(void)loadFormData:(NSObject *)object
+{
+    tactic = (Tactic *)object;
+    [squadTable reloadData];
+}
+
+- (void)viewDidLoad
+{
+    
+    [super viewDidLoad];
+    [swapButton setEnabled:NO];
+    selectedCells = [[NSMutableArray alloc]initWithCapacity:2];
     //title.text = [sqlm getTeamNameWithId:current.teamId];
-    Response * resp = [OnlineServices getSquad:teamId];
-    tactic = (Tactic *)resp.object;
     self.formations = @[@"4-4-2",@"4-5-1",@"3-5-2",@"4-3-3"];
 }
 
@@ -347,11 +357,6 @@
     [self.squadTable reloadData];
 
 }
-
--(IBAction)backView:(id)sender{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 
 
 @end

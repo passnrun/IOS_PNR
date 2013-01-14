@@ -10,8 +10,9 @@
 #import "Common/GameScore.h"
 #import "Common/Fixture.h"
 #import "Common/TeamPlayerPerformance.h"
+#import "PNRBaseViewController.h"
 
-@interface GameScoreTableViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate, UIPickerViewDataSource,UIScrollViewDelegate>
+@interface GameScoreTableViewController : PNRBaseViewController <UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate, UIPickerViewDataSource,UIScrollViewDelegate>
 {
     IBOutlet UILabel * homeTeam;
     IBOutlet UILabel * awayTeam;

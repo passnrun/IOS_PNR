@@ -26,30 +26,21 @@
     return self;
 }
 
+- (Response *)queryFormData
+{
+    return [OnlineServices getPlayerDetail:playerId];
+}
+
+- (void)loadFormData:(NSObject *)object
+{
+    player = (NSDictionary *)object;
+    [self fillFormValues];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [mainScroll setContentSize:CGSizeMake(600, 1)];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^ {
-        Response * response = [OnlineServices getPlayerDetail:playerId];
-        dispatch_async( dispatch_get_main_queue(), ^{
-            if (response.isSuccessful)
-            {
-                player = (NSDictionary *)response.object;
-                [self fillFormValues];
-            }else {
-                NSLog(@"Error in Player Detail Service %@ ",response.errorMessage);
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:response.errorMessage
-                                                                message:nil
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
-                [alert release];
-            }
-        });
-        
-    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,10 +53,6 @@
     CGFloat pageWidth = 300;
     int page = floor((mainScroll.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     pageControl.currentPage = page;
-}
-
--(IBAction)backView:(id)sender{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) fillFormValues

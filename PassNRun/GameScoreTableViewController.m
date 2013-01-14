@@ -22,46 +22,37 @@
 
 @synthesize homeTeam, awayTeam, score, gameScore, fixture, gameActionsTableView, mainScroll, pageControl, gameDetailWebView, teamPlayersPerformance,homeTeamStatsTableView,awayTeamStatsTableView,subTitle,attendance, titleGoal,titleAssist,titleForm,titleMorale;
 
-
-- (void)viewDidLoad
+- (Response *)queryFormData
 {
-    [super viewDidLoad];
-    [mainScroll setContentSize:CGSizeMake(1200, 1)];
     Response * response = [OnlineServices getGameDetailList:fixture.gameId :1];
     if (response.isSuccessful)
     {
         gameScore = [[GameScore alloc]init];
         gameScore.gameScoreItems = (NSArray *)response.object;
-    }else {
-            NSLog(@"Error in Game Detail Service %@ ",response.errorMessage);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:response.errorMessage
-                                                            message:nil
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-            [alert release];
+        response = [OnlineServices getGameTeamStats:fixture.gameId];
+        if (response.isSuccessful)
+            teamPlayersPerformance = (TeamPlayerPerformance *)response.object;
     }
-    response = [OnlineServices getGameTeamStats:fixture.gameId];
-    if (response.isSuccessful)
-    {
-        teamPlayersPerformance = (TeamPlayerPerformance *)response.object;
-    }else {
-        NSLog(@"Error in Team Player Performance Service %@ ",response.errorMessage);
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:response.errorMessage
-                                                        message:nil
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        [alert release];
-    }
+    return response;
+}
+
+- (void)loadFormData:(NSObject *)object
+{
+    [gameDetailWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://pickledphotos.com/passnrun/GameDetail?gameId=%i", fixture.gameId]]]];
+    [gameActionsTableView reloadData];
+    [homeTeamStatsTableView reloadData];
+    [awayTeamStatsTableView reloadData];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [mainScroll setContentSize:CGSizeMake(1200, 1)];
     homeTeam.text = fixture.homeTeamName;
     awayTeam.text = fixture.awayTeamName;
     score.text = [NSString stringWithFormat:@"%i - %i", fixture.homeScore, fixture.awayScore];
     subTitle.text = @"Game Summary";
     attendance.text = [NSString stringWithFormat:@"Attendance : %i", fixture.attendance];
-    [gameDetailWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://pickledphotos.com/passnrun/GameDetail?gameId=%i", fixture.gameId]]]];
 }
 
 

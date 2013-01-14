@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PNRBaseViewController.h"
 
-@interface PlayerDetailViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource,UIScrollViewDelegate>
+@interface PlayerDetailViewController : PNRBaseViewController<UIPickerViewDelegate, UIPickerViewDataSource,UIScrollViewDelegate>
 {
     IBOutlet UILabel * playerName;
     IBOutlet UILabel * age;
@@ -53,7 +54,6 @@
     int playerId;
 }
 
--(IBAction)backView:(id)sender;
 @property (nonatomic, strong) UILabel * playerName;
 @property (nonatomic, strong) UILabel * age;
 @property (nonatomic, strong) UILabel * position;

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ComboBox.h"
 #import "Tactic.h"
+#import "PNRBaseViewController.h"
 
-@interface SquadTableViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate, UIPickerViewDataSource>
+@interface SquadTableViewController : PNRBaseViewController <UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate, UIPickerViewDataSource>
 {
     int teamId;
     Tactic * tactic;

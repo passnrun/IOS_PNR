@@ -395,6 +395,14 @@
                                     <action selector="saveSquad:" destination="8Tt-Gc-hD5" eventType="touchUpInside" id="CXY-MQ-Nfz"/>
                                 </connections>
                             </button>
+                            <pickerView hidden="YES" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" id="1RJ-E0-Qty" userLabel="Formation - Picker">
+                                <rect key="frame" x="10" y="200" width="300" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Tt-Gc-hD5" id="pJV-Ua-lgK"/>
+                                    <outlet property="delegate" destination="8Tt-Gc-hD5" id="8VD-44-AL0"/>
+                                </connections>
+                            </pickerView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f6G-ic-LdI">
                                 <rect key="frame" x="227" y="293" width="69" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -410,14 +418,6 @@
                                     <action selector="setFormation:" destination="8Tt-Gc-hD5" eventType="touchUpInside" id="Q9S-wq-Uyl"/>
                                 </connections>
                             </button>
-                            <pickerView hidden="YES" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" id="1RJ-E0-Qty" userLabel="Formation - Picker">
-                                <rect key="frame" x="10" y="199" width="300" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="8Tt-Gc-hD5" id="pJV-Ua-lgK"/>
-                                    <outlet property="delegate" destination="8Tt-Gc-hD5" id="8VD-44-AL0"/>
-                                </connections>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -464,7 +464,7 @@
                                 <connections>
                                     <action selector="backView:" destination="8Tt-Gc-hD5" eventType="touchUpInside" id="6LN-Pt-sE7"/>
                                     <action selector="backView:" destination="AcH-dB-UAa" eventType="touchUpInside" id="72Q-21-8Ym"/>
-                                    <action selector="backView:" destination="8HJ-5L-r3C" eventType="touchUpInside" id="Ocz-Bl-QXR"/>
+                                    <action selector="backView:" destination="8HJ-5L-r3C" eventType="touchUpInside" id="t44-Sn-jJ2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="BELHANDA" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oKa-Sv-ASP" userLabel="Label - Player Name">
@@ -2136,193 +2136,12 @@
         <image name="header.png" width="598" height="88"/>
         <image name="table_cell_border.png" width="574" height="50"/>
     </resources>
-    <classes>
-        <class className="FixtureTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FixtureTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="awayTeam" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="homeTeam" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="score" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scoreButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="FixtureTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FixtureTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backView:"/>
-                <relationship kind="outlet" name="fixtureTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="GameScoreTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameScoreTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="awayActionImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="awayPlayer" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="homeActionImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="homePlayer" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="minute" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GameScoreTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameScoreTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backView:"/>
-                <relationship kind="outlet" name="attendance" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="awayTeam" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="awayTeamStatsTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="gameActionsTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="gameDetailWebView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="homeTeam" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="homeTeamStatsTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="mainScroll" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="score" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="subTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleAssist" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleForm" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleGoal" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleMorale" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LeagueTableTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeagueTableTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backView:"/>
-                <relationship kind="outlet" name="leagueTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="LeagueTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeagueTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="againstGoals" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="avgGoals" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="draw" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="forGoals" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="played" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="points" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rank" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="team" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="win" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NewsTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="subject" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NewsTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backView:"/>
-                <relationship kind="outlet" name="newsDetails" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="newsTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="PNRViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PNRViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="resign:"/>
-            </relationships>
-        </class>
-        <class className="PlayerDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backView:"/>
-                <relationship kind="outlet" name="acceleration" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="age" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="agility" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="appearence" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="assist" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="avgRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="bans" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="birthdate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="composure" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="condition" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="creativity" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="crossing" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dribbling" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="finishing" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstTouch" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="goals" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="handling" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="heading" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="injury" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="latestForm" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mainScroll" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="morale" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nationality" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="passing" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="position" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="positioning" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="reflexes" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="shooting" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="stamina" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="strength" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tackling" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="team" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="teamwork" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="technique" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PlayerPerformanceTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerPerformanceTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="assist" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="form" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="goal" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="morale" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="position" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="RegisterModalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterModalViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sendData:"/>
-                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="surnameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="teamTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SquadTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SquadTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="fitness" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="latestForm" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="morale" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="position" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="positionMatchImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="SquadTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SquadTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backView:"/>
-                <relationship kind="action" name="formation:"/>
-                <relationship kind="action" name="saveSquad:"/>
-                <relationship kind="action" name="setFormation:"/>
-                <relationship kind="action" name="switchPlayers:"/>
-                <relationship kind="outlet" name="formationPicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="squadTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="swapButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="useFormationButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hJe-gP-lNg"/>
+        <segue reference="QIB-oI-V1W"/>
     </inferredMetricsTieBreakers>
 </document>

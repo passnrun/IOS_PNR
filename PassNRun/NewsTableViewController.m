@@ -32,8 +32,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
-    if ([newsArray count] > 0)
-        [newsTable selectRowAtIndexPath:indexPath animated:YES  scrollPosition:UITableViewScrollPositionNone];
+    if ([newsArray count] > 0){
+        [newsTable selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        [self tableView:newsTable didSelectRowAtIndexPath:indexPath];
+    }
 }
 
 - (void)didReceiveMemoryWarning
